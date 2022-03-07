@@ -1,0 +1,1641 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TFIDF Values &#8212; NLP Cluster Network</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "https://github.com/AndrewDamico/nlpnetworkanalysis");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">NLP Cluster Network</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Vision Inference Processing Endogenous Robot
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="readme.html">
+   1. Hello
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docs/communication_diagram.html">
+   2. Viper Communication Diagram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docs/process_diagram.html">
+   3. Viper Data Process Diagram
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hardware
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="docs/Hardware.html">
+   Hardware Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.raspberrypi.com/">
+   Raspberry Pi
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="docs/Software.html">
+   Software Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/AndrewDamico/viper">
+   VIPER GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://mate-desktop.org/">
+   Mate Desktop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.ubuntu.com">
+   Ubuntu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/neural-compute-stick/overview.html">
+   Intel Neural Compute Stick 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Untitled2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AndrewDamico/nlpnetworkanalysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AndrewDamico/nlpnetworkanalysis/issues/new?title=Issue%20on%20page%20%2FUntitled2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/AndrewDamico/nlpnetworkanalysis/edit/main/https://andrewdamico.github.io/nlpnetworkanalysis/Untitled2.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AndrewDamico/nlpnetworkanalysis/main?urlpath=tree/https://andrewdamico.github.io/nlpnetworkanalysis/Untitled2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TFIDF Values
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elbows">
+   ELbows
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup">
+   Backup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kmeans">
+   Kmeans
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TFIDF Values</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TFIDF Values
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elbows">
+   ELbows
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backup">
+   Backup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kmeans">
+   Kmeans
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">MDS</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">KFold</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span><span class="p">,</span><span class="n">LdaMulticore</span><span class="p">,</span> <span class="n">TfidfModel</span>
+<span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span>
+
+
+<span class="kn">from</span> <span class="nn">gensim.models.doc2vec</span> <span class="kn">import</span> <span class="n">Doc2Vec</span><span class="p">,</span> <span class="n">TaggedDocument</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">NLPPrep</span>
+<span class="kn">from</span> <span class="nn">NLPPrep</span> <span class="kn">import</span> <span class="n">clean_doc</span><span class="p">,</span> <span class="n">One_Hot</span><span class="p">,</span> <span class="n">newsloader</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">string</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;nltk&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">NLPPrep</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;NLPPrep&#39; from &#39;D:\\OneDrive - Northwestern University\\453 NLP\\nlpnetworkanalysis\\NLPPrep.py&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span> <span class="o">=</span> <span class="n">newsloader</span><span class="p">(</span><span class="n">records</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2020-1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-2.csv&#39;</span><span class="p">])</span>
+<span class="n">news</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total files: 2
+Total records: 3735
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>headline</th>
+      <th>date</th>
+      <th>doc_type</th>
+      <th>type_of_material</th>
+      <th>snippet</th>
+      <th>source</th>
+      <th>news_desk</th>
+      <th>section_name</th>
+      <th>keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>‘Battling a Demon’: Drifter Sought Help Before...</td>
+      <td>2020-01-01</td>
+      <td>article</td>
+      <td>News</td>
+      <td>The gunman who shot two parishioners at the We...</td>
+      <td>The New York Times</td>
+      <td>National</td>
+      <td>U.S.</td>
+      <td>['Churches (Buildings)', 'Murders, Attempted M...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F.D.A. Plans to Ban Most E-Cigarette Flavors b...</td>
+      <td>2020-01-01</td>
+      <td>article</td>
+      <td>News</td>
+      <td>The tobacco and vaping industries and conserva...</td>
+      <td>The New York Times</td>
+      <td>Science</td>
+      <td>Health</td>
+      <td>['E-Cigarettes', 'Recalls and Bans of Products...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Hong Kong Protesters Return to Streets as New ...</td>
+      <td>2020-01-01</td>
+      <td>article</td>
+      <td>News</td>
+      <td>Weeks of relative calm ended on Wednesday, as ...</td>
+      <td>The New York Times</td>
+      <td>Foreign</td>
+      <td>World</td>
+      <td>['Demonstrations, Protests and Riots', 'Hong K...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kevin Spacey Accuser’s Estate Drops Sexual Ass...</td>
+      <td>2020-01-01</td>
+      <td>article</td>
+      <td>News</td>
+      <td>A Los Angeles County massage therapist, who di...</td>
+      <td>The New York Times</td>
+      <td>Express</td>
+      <td>U.S.</td>
+      <td>['Sexual Harassment', 'Suits and Litigation (C...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Dizzying Day for Trump Caps a Year Full of Them</td>
+      <td>2020-01-01</td>
+      <td>article</td>
+      <td>News</td>
+      <td>The president monitored a Middle East crisis f...</td>
+      <td>The New York Times</td>
+      <td>Washington</td>
+      <td>U.S.</td>
+      <td>['United States International Relations', 'Uni...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Combine the headline, keywords, and snippet into a single cell</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span><span class="p">[[</span><span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;snippet&#39;</span><span class="p">,</span> <span class="s1">&#39;keywords&#39;</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>headline</th>
+      <th>snippet</th>
+      <th>keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>‘Battling a Demon’: Drifter Sought Help Before...</td>
+      <td>The gunman who shot two parishioners at the We...</td>
+      <td>['Churches (Buildings)', 'Murders, Attempted M...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F.D.A. Plans to Ban Most E-Cigarette Flavors b...</td>
+      <td>The tobacco and vaping industries and conserva...</td>
+      <td>['E-Cigarettes', 'Recalls and Bans of Products...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Hong Kong Protesters Return to Streets as New ...</td>
+      <td>Weeks of relative calm ended on Wednesday, as ...</td>
+      <td>['Demonstrations, Protests and Riots', 'Hong K...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kevin Spacey Accuser’s Estate Drops Sexual Ass...</td>
+      <td>A Los Angeles County massage therapist, who di...</td>
+      <td>['Sexual Harassment', 'Suits and Litigation (C...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Dizzying Day for Trump Caps a Year Full of Them</td>
+      <td>The president monitored a Middle East crisis f...</td>
+      <td>['United States International Relations', 'Uni...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;samples.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3735
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Num_na</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total NA in headline: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total NA in Snippet: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total NA in Keywords: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">Num_na</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total NA in headline: 0
+Total NA in Snippet: 10
+Total NA in Keywords: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span><span class="p">[</span><span class="s2">&quot;headline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news</span><span class="p">[</span><span class="s2">&quot;headline&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">news</span><span class="p">[</span><span class="s2">&quot;snippet&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news</span><span class="p">[</span><span class="s2">&quot;snippet&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">Num_na</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total NA in headline: 0
+Total NA in Snippet: 0
+Total NA in Keywords: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">news</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span>
+<span class="c1">#pd.DataFrame(news[&#39;articles&#39;][3])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Kevin Spacey Accuser’s Estate Drops Sexual Assault Lawsuit A Los Angeles County massage therapist, who died in September, had accused Mr. Spacey of groping him and making improper advances during a 2016 massage. [&#39;Sexual Harassment&#39;, &#39;Suits and Litigation (Civil)&#39;, &#39;Movies&#39;, &#39;#MeToo Movement&#39;, &#39;Television&#39;, &#39;ACTORS AND ACTRESSES&#39;, &#39;Massage&#39;, &#39;Sex Crimes&#39;, &#39;Academy Awards (Oscars)&#39;, &#39;Golden Globes (Awards)&#39;, &#39;Tony Awards (Theater Awards)&#39;]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">articles</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">news</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">articles</span> <span class="o">=</span> <span class="n">news</span><span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">articles</span><span class="p">))</span>
+<span class="n">articles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47078
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;‘Battling a Demon’: Drifter Sought Help Before Texas Church Shooting The gunman who shot two parishioners at the West Freeway Church of Christ had come earlier looking for food and money, church leaders said. [&#39;Churches (Buildings)&#39;, &#39;Murders, Attempted Murders and Homicides&#39;]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">processed_text</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">articles</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Dizzying Day for Trump Caps a Year Full of Them The president monitored a Middle East crisis from his golf club, threatened Iran and implored reporters to be “honorable” in 2020. [&#39;United States International Relations&#39;, &#39;United States Politics and Government&#39;, &#39;Trump-Ukraine Whistle-blower Complaint and Impeachment Inquiry&#39;]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">clean_doc</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">processed_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">processed_text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_processed_text</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">final_processed_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">processed_text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+
+    <span class="n">temp_DSI</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+        <span class="n">temp_DSI</span> <span class="o">=</span> <span class="n">temp_DSI</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">final_processed_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_DSI</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">final_processed_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_processed_text</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;drifter sought texas church shooting gunman parishioners freeway church christ earlier looking money church leaders churches buildings murders attempted murders homicides&#39;,
+ &#39;plans ecigarette flavors menthol tobacco vaping industries conservative allies intensively lobbied popular flavored ecigarettes ecigarettes recalls products menthol nicotine teenagers adolescence regulation deregulation industry smoking tobacco lobbying lobbyists united states politics government yourfeedhealthcare&#39;,
+ &#39;protesters return streets begins weeks relative ended wednesday people marched large numbers police deployed pepper spray demonstrations protests riots protests&#39;,
+ &#39;kevin spacey estate drops sexual assault lawsuit angeles county massage therapist september accused spacey groping making improper advances massage sexual harassment suits litigation civil movies metoo movement television actors actresses massage crimes academy awards oscars golden globes awards awards theater awards&#39;,
+ &#39;dizzying trump president monitored middle crisis threatened implored reporters united states international relations united states politics government trumpukraine whistleblower complaint impeachment inquiry&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tfidf-values">
+<h1>TFIDF Values<a class="headerlink" href="#tfidf-values" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tfidf</span><span class="o">=</span><span class="n">TfidfVectorizer</span><span class="p">(</span>
+    <span class="n">sublinear_tf</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">min_df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> 
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span>
+    <span class="n">strip_accents</span><span class="o">=</span> <span class="s1">&#39;unicode&#39;</span><span class="p">,</span> 
+    <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TFIDF_matrix</span> <span class="o">=</span> <span class="n">Tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">final_processed_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> 
+                      <span class="n">columns</span> <span class="o">=</span> <span class="n">Tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">(),</span>
+                      <span class="n">index</span> <span class="o">=</span> <span class="n">titles</span>
+                     <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_TFIDF</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">average_TFIDF</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_TFIDF_DF</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">average_TFIDF</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_TFIDF_DF</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TFIDF&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">average_TFIDF_DF</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">Q3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">average_TFIDF_DF</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+<span class="n">outlier</span><span class="o">=</span><span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">IQR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_TFIDF_DF</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;TFIDF&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;TFIDF.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="n">TaggedDocument</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">final_processed_text</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cores</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total Cores: </span><span class="si">{</span><span class="n">cores</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Doc2Vec</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> 
+                <span class="n">vector_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
+                <span class="n">window</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                <span class="n">min_count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                <span class="n">workers</span> <span class="o">=</span> <span class="n">cores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Cores: 8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc2vec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">processed_text</span><span class="p">)):</span>
+    <span class="n">vector</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">infer_vector</span><span class="p">(</span><span class="n">processed_text</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">doc2vec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">doc2vec_df</span><span class="p">,</span><span class="n">vector</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">doc2vec_df</span><span class="o">=</span><span class="n">doc2vec_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">doc_titles</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">titles</span><span class="p">}</span>
+<span class="n">t</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">doc_titles</span><span class="p">)</span>
+
+<span class="n">doc2vec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">doc2vec_df</span><span class="p">,</span><span class="n">t</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">doc2vec_df</span><span class="o">=</span><span class="n">doc2vec_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_w2v</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">processed_text</span><span class="p">,</span> 
+                     <span class="n">vector_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
+                     <span class="n">window</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                     <span class="n">min_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+                     <span class="n">workers</span> <span class="o">=</span> <span class="n">cores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#join all processed DSI words into single list</span>
+<span class="n">processed_text_w2v</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">processed_text</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="n">processed_text_w2v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="c1">#obtian all the unique words from DSI</span>
+<span class="n">w2v_words</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">processed_text_w2v</span><span class="p">))</span>
+
+<span class="c1">#can also use the get_feature_names() from TFIDF to get the list of words</span>
+<span class="c1">#w2v_words=Tfidf.get_feature_names()</span>
+
+<span class="c1">#empty dictionary to store words with vectors</span>
+<span class="n">w2v_vectors</span><span class="o">=</span><span class="p">{}</span>
+
+<span class="c1">#for loop to obtain weights for each word</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w2v_words</span><span class="p">:</span>
+    <span class="n">temp_vec</span><span class="o">=</span><span class="n">model_w2v</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">w2v_vectors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">temp_vec</span>
+
+<span class="c1">#create a final dataframe to view word vectors</span>
+<span class="n">w2v_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">w2v_vectors</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+
+<span class="c1">#the following section runs applies the k-means algorithm on the TFIDF matrix.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="elbows">
+<h1>ELbows<a class="headerlink" href="#elbows" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">yellowbrick.cluster</span> <span class="kn">import</span> <span class="n">KElbowVisualizer</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span><span class="p">,</span> <span class="n">silhouette_score</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">TFIDF_matrix</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">()</span>
+<span class="n">visualizer</span> <span class="o">=</span> <span class="n">KElbowVisualizer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> 
+                              <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+                              <span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;silhouette&#39;</span><span class="p">,</span> 
+                              <span class="n">timings</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span>
+
+<span class="n">visualizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Untitled2_40_0.png" src="_images/Untitled2_40_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Silhouette Score Elbow for KMeans Clustering&#39;}, xlabel=&#39;k&#39;, ylabel=&#39;silhouette score&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backup">
+<h1>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">elbow_method</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Plot the distortions for each potential value of k</span>
+    <span class="n">distortions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="n">distortions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="s1">&#39;xb-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distortion&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The Elbow Method with optimal k&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">elbow_method</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span><span class="p">,</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span> <span class="nn">kneed</span> <span class="kn">import</span> <span class="n">KneeLocator</span>
+<span class="c1">#import matplotlib.pyplot as plt</span>
+<span class="c1">#import matplotlib.cm as cm</span>
+<span class="c1">#import numpy as np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">from</span> <span class="nn">varname</span> <span class="kn">import</span> <span class="n">nameof</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kneed</span> <span class="kn">import</span> <span class="n">KneeLocator</span><span class="p">,</span> <span class="n">DataGenerator</span> <span class="k">as</span> <span class="n">dg</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dg</span><span class="o">.</span><span class="n">convex_decreasing</span><span class="p">()</span>
+<span class="n">kl</span> <span class="o">=</span> <span class="n">KneeLocator</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s2">&quot;convex&quot;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;decreasing&quot;</span><span class="p">)</span>
+<span class="n">kl</span><span class="o">.</span><span class="n">plot_knee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">elbow_method</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">knee</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">distortions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">silhouettes</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Set Seed</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">seed</span><span class="p">:</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Seed: </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="n">silhouettes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_avg</span><span class="p">)</span>
+        <span class="n">distortions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">bestk_plot</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">draw_knee</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">twinx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">twinx</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axis</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span><span class="mi">5</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">draw_knee</span><span class="p">:</span>
+            <span class="c1"># https://kneed.readthedocs.io/en/stable/parameters.html</span>
+            <span class="n">kneedle</span> <span class="o">=</span> <span class="n">KneeLocator</span><span class="p">(</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span>
+                <span class="n">curve</span> <span class="o">=</span> <span class="n">curve</span><span class="p">,</span> 
+                <span class="n">direction</span> <span class="o">=</span> <span class="n">direction</span><span class="p">,</span> 
+                <span class="n">online</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                <span class="n">interp_method</span> <span class="o">=</span> <span class="s2">&quot;interp1d&quot;</span><span class="p">,</span> <span class="c1">#Valid arguments are “interp1d” and “polynomial”.</span>
+                <span class="n">polynomial_degree</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Default</span>
+            <span class="p">)</span> 
+            <span class="nb">print</span> <span class="p">(</span><span class="n">kneedle</span><span class="o">.</span><span class="n">knee</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">kneedle</span><span class="o">.</span><span class="n">knee</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;k=</span><span class="si">{</span><span class="n">kneedle</span><span class="o">.</span><span class="n">knee</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">ax</span>
+        
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">bestk_plot</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">draw_knee</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s1">&#39;convex&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;decreasing&#39;</span><span class="p">)</span>
+    <span class="c1">#ax2 = bestk_plot(ax1, K, silhouettes, &#39;tab:blue&#39;, True,&#39;concave&#39;, &#39;increasing&#39;, twinx=True)</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax3</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    
+    <span class="c1">#text(0.5, 1, f&#39;Seed: {seed}&#39;, horizontalalignment=&#39;left&#39;, verticalalignment=&#39;bottom&#39;, transform=fig.transFigure)</span>
+    
+     	
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">elbow_method</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seed: 4188493
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_7524</span>\<span class="mf">1272769047.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> 
+<span class="ne">---&gt; </span><span class="mi">61</span> <span class="n">elbow_method</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp\ipykernel_7524\1272769047.py</span> in <span class="ni">elbow_method</span><span class="nt">(matrix, lower, upper, seed, knee)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> 
+<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="n">ax1</span> <span class="o">=</span> <span class="n">bestk_plot</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">draw_knee</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s1">&#39;convex&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;decreasing&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="c1">#ax2 = bestk_plot(ax1, K, silhouettes, &#39;tab:blue&#39;, True,&#39;concave&#39;, &#39;increasing&#39;, twinx=True)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">ax3</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+<span class="nn">~\AppData\Local\Temp\ipykernel_7524\1272769047.py</span> in <span class="ni">bestk_plot</span><span class="nt">(axis, x, y, color, draw_knee, curve, direction, twinx)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>             <span class="n">ax</span> <span class="o">=</span> <span class="n">axis</span>
+<span class="ne">---&gt; </span><span class="mi">25</span>             <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">argname</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;argname&#39; is not defined
+</pre></div>
+</div>
+<img alt="_images/Untitled2_50_2.png" src="_images/Untitled2_50_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="c1"># Plot Distortions</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;k (s)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distortion&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">knee</span><span class="p">:</span>
+        <span class="n">distortion_knee</span> <span class="o">=</span> <span class="n">KneeLocator</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s2">&quot;convex&quot;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;decreasing&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">distortion_knee</span><span class="o">.</span><span class="n">knee</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;k=</span><span class="si">{</span><span class="n">distortion_knee</span><span class="o">.</span><span class="n">knee</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+
+    <span class="c1"># Plot Silhouettes</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>  <span class="c1"># instantiate a second axes that shares the same x-axis</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Silhouettes&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">silhouettes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">knee</span><span class="p">:</span>
+        <span class="n">silhouette_knee</span> <span class="o">=</span> <span class="n">KneeLocator</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">silhouettes</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s2">&quot;concave&quot;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;increasing&quot;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">silhouette_knee</span><span class="o">.</span><span class="n">knee</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;k=</span><span class="si">{</span><span class="n">silhouette_knee</span><span class="o">.</span><span class="n">knee</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1">#plt.figure(figsize=(16,8))</span>
+    <span class="c1">#plt.plot(K, distortions, &#39;xb-&#39;)</span>
+    <span class="c1">#plt.plot(K, silhouettes, &#39;xr-&#39;)</span>
+    <span class="c1">#plt.xlabel(&#39;k&#39;)</span>
+    <span class="c1">#plt.ylabel(&#39;Distortion&#39;)</span>
+    <span class="c1">#plt.title(&#39;The Elbow Method with optimal k&#39;)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># Plot Distortions</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;k (s)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distortion&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="c1"># Plot Silhouettes</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>  <span class="c1"># instantiate a second axes that shares the same x-axis</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Silhouettes&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">silhouettes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># otherwise the right y-label is slightly clipped</span>
+
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">elbow_method</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Plot the distortions for each potential value of k</span>
+    <span class="n">distortions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">silhouettes</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="n">silhouettes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_avg</span><span class="p">)</span>
+        <span class="n">distortions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">distortions</span><span class="p">,</span> <span class="s1">&#39;xb-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">silhouettes</span><span class="p">,</span> <span class="s1">&#39;xr-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distortion&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The Elbow Method with optimal k&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+        <span class="c1"># Create a subplot with 1 row and 2 columns</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+        <span class="c1"># The 1st subplot is the silhouette plot</span>
+        <span class="c1"># The silhouette coefficient can range from -1, 1 but in this example all</span>
+        <span class="c1"># lie within [-0.1, 1]</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># The (n_clusters+1)*10 is for inserting blank space between silhouette</span>
+        <span class="c1"># plots of individual clusters, to demarcate them clearly.</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">n_clusters</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">])</span>
+
+        <span class="c1"># Initialize the clusterer with n_clusters value and a random generator</span>
+        <span class="c1"># seed of 10 for reproducibility.</span>
+
+
+
+    <span class="c1"># Compute the silhouette scores for each sample</span>
+    <span class="n">sample_silhouette_values</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cluster_labels</span><span class="p">)</span>
+
+    <span class="n">y_lower</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+        <span class="c1"># Aggregate the silhouette scores for samples belonging to</span>
+        <span class="c1"># cluster i, and sort them</span>
+        <span class="n">ith_cluster_silhouette_values</span> <span class="o">=</span> <span class="n">sample_silhouette_values</span><span class="p">[</span><span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+
+        <span class="n">ith_cluster_silhouette_values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+        <span class="n">size_cluster_i</span> <span class="o">=</span> <span class="n">ith_cluster_silhouette_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="n">size_cluster_i</span>
+
+        <span class="n">color</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">nipy_spectral</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_clusters</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">y_upper</span><span class="p">),</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="n">ith_cluster_silhouette_values</span><span class="p">,</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Label the silhouette plots with their cluster numbers at the middle</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">size_cluster_i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+        <span class="c1"># Compute the new y_lower for next plot</span>
+        <span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_upper</span> <span class="o">+</span> <span class="mi">10</span>  <span class="c1"># 10 for the 0 samples</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;The silhouette plot for the various clusters.&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;The silhouette coefficient values&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Cluster label&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The vertical line for average silhouette score of all the values</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">silhouette_avg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>  <span class="c1"># Clear the yaxis labels / ticks</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># 2nd Plot showing the actual clusters formed</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">nipy_spectral</span><span class="p">(</span><span class="n">cluster_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_clusters</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Labeling the clusters</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">cluster_centers_</span>
+    <span class="c1"># Draw white circles at cluster centers</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">centers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">centers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+        <span class="n">c</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">centers</span><span class="p">):</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">%d</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;The visualization of the clustered data.&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature space for the 1st feature&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Feature space for the 2nd feature&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+        <span class="s2">&quot;Silhouette analysis for KMeans clustering on sample data with n_clusters = </span><span class="si">%d</span><span class="s2">&quot;</span>
+        <span class="o">%</span> <span class="n">n_clusters</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+        <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elbow_method</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+~\AppData\Local\Temp\ipykernel_7524\215841366.py in &lt;module&gt;
+----&gt; 1 elbow_method(TFIDF_matrix,2,5)
+
+~\AppData\Local\Temp\ipykernel_7524\1317614767.py in elbow_method(matrix, lower, upper, seed)
+      9         model = KMeans(k, random_state=seed)
+     10         labels = model.fit(matrix)
+---&gt; 11         silhouette_avg = silhouette_score(matrix, labels)
+     12         silhouettes.append(silhouette_avg)
+     13         distortions.append(model.inertia_)
+
+~\anaconda3\envs\NLP\lib\site-packages\sklearn\metrics\cluster\_unsupervised.py in silhouette_score(X, labels, metric, sample_size, random_state, **kwds)
+    115         else:
+    116             X, labels = X[indices], labels[indices]
+--&gt; 117     return np.mean(silhouette_samples(X, labels, metric=metric, **kwds))
+    118 
+    119 
+
+~\anaconda3\envs\NLP\lib\site-packages\sklearn\metrics\cluster\_unsupervised.py in silhouette_samples(X, labels, metric, **kwds)
+    210        &lt;https://en.wikipedia.org/wiki/Silhouette_(clustering)&gt;`_
+    211     &quot;&quot;&quot;
+--&gt; 212     X, labels = check_X_y(X, labels, accept_sparse=[&quot;csc&quot;, &quot;csr&quot;])
+    213 
+    214     # Check for non-zero diagonal entries in precomputed distance matrix
+
+~\anaconda3\envs\NLP\lib\site-packages\sklearn\utils\validation.py in check_X_y(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)
+    977     )
+    978 
+--&gt; 979     y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric)
+    980 
+    981     check_consistent_length(X, y)
+
+~\anaconda3\envs\NLP\lib\site-packages\sklearn\utils\validation.py in _check_y(y, multi_output, y_numeric)
+    991         )
+    992     else:
+--&gt; 993         y = column_or_1d(y, warn=True)
+    994         _assert_all_finite(y)
+    995         _ensure_no_complex_data(y)
+
+~\anaconda3\envs\NLP\lib\site-packages\sklearn\utils\validation.py in column_or_1d(y, warn)
+   1037 
+   1038     raise ValueError(
+-&gt; 1039         &quot;y should be a 1d array, got an array of shape {} instead.&quot;.format(shape)
+   1040     )
+   1041 
+
+ValueError: y should be a 1d array, got an array of shape () instead.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kmeans">
+<h1>Kmeans<a class="headerlink" href="#kmeans" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span><span class="mi">89</span><span class="p">)</span>
+<span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">TFIDF_matrix</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">labels_</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+
+<span class="n">terms</span> <span class="o">=</span> <span class="n">Tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="n">Dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Doc Name&#39;</span><span class="p">:</span><span class="n">titles</span><span class="p">,</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">:</span><span class="n">clusters</span><span class="p">,</span>  <span class="s1">&#39;Text&#39;</span><span class="p">:</span> <span class="n">final_processed_text</span><span class="p">}</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="s1">&#39;Doc Name&#39;</span><span class="p">,</span><span class="s1">&#39;Text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top terms per cluster:&quot;</span><span class="p">)</span>
+<span class="c1">#sort cluster centers by proximity to centroid</span>
+<span class="n">order_centroids</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+<span class="n">terms_dict</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="c1">#save the terms for each cluster and document to dictionaries.  To be used later</span>
+<span class="c1">#for plotting output.</span>
+
+<span class="c1">#dictionary to store terms and titles</span>
+<span class="n">cluster_terms</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">cluster_title</span><span class="o">=</span><span class="p">{}</span>
+
+<span class="n">print_titles</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cluster </span><span class="si">%d</span><span class="s2">:&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">),</span>
+    <span class="n">temp_terms</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">temp_titles</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">order_centroids</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">terms_dict</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">temp_terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+    <span class="n">cluster_terms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">temp_terms</span>
+    <span class="n">temp</span><span class="o">=</span><span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">print_titles</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cluster </span><span class="si">%d</span><span class="s2"> titles:&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+    <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;Doc Name&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">print_titles</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">%s</span><span class="s1">,&#39;</span> <span class="o">%</span> <span class="n">title</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">temp_titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">cluster_title</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">temp_titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top terms per cluster:
+Cluster 0:
+ coronavirus
+ pandemic
+ internalessential
+ people
+ government
+ quarantine
+ media
+ culture
+ travel
+ content
+Cluster 1:
+ estate
+ housing
+ residential
+ housing residential
+ estate housing
+ homes
+ recent
+ house
+ commercial
+ properties
+Cluster 2:
+ united states
+ united
+ states
+ government
+ politics
+ states politics
+ politics government
+ military
+ international
+ defense
+Cluster 3:
+ election
+ presidential
+ presidential election
+ trump
+ politics
+ states
+ states politics
+ united states
+ united
+ politics government
+Cluster 4:
+ vaccination
+ immunization
+ vaccination immunization
+ coronavirus
+ vaccine
+ coronavirus vaccination
+ immunization coronavirus
+ vaccines
+ coronavirus briefing
+ rates
+Cluster 5:
+ murders
+ police
+ homicides
+ attempted murders
+ murders homicides
+ murders attempted
+ protests
+ shootings
+ attempted
+ police brutality
+Cluster 6:
+ warming
+ global warming
+ global
+ climate
+ emissions
+ greenhouse
+ greenhouse emissions
+ climate change
+ change
+ warming greenhouse
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_terms</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cluster_title</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;cluster7.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Andrew Damico<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
