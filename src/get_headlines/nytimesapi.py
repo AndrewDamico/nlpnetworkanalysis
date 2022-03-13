@@ -13,6 +13,7 @@ import requests
 import datetime
 import dateutil
 import pandas as pd
+import api_key
 from dateutil.relativedelta import relativedelta
 
 excluded_sections = ['Style', 'The Learning Network', 'Arts',
@@ -56,7 +57,7 @@ def get_nyt_articles(n=1):
         '''Sends a request to the NYT Archive API for given date.'''
         base_url = 'https://api.nytimes.com/svc/archive/v1/'
         url = base_url + '/' + date[0] + '/' + date[
-            1] + '.json?api-key=' + 'IXgpV4G3MtKtTgzm7L54bXITJ2egifLm'
+            1] + '.json?api-key=' + api_key.api_key
         response = requests.get(url).json()
         time.sleep(6)
         return response
@@ -107,8 +108,8 @@ def get_nyt_articles(n=1):
         '''Sends and parses request/response to/from NYT Archive API for given dates.'''
         total = 0
         print('Date range: ' + str(dates[0]) + ' to ' + str(dates[-1]))
-        if not os.path.exists('headlines'):
-            os.mkdir('headlines')
+        if not os.path.exists('../../headlines'):
+            os.mkdir('../../headlines')
         for date in dates:
             response = send_request(date)
             df = parse_response(response)

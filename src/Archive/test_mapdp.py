@@ -7,7 +7,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 plt.ion()
-import mapdp_nw as mapdp
+from src.Archive import mapdp_nw as mapdp
+
 # read in data
 d = pd.read_csv('toydata.csv')
 N = d.shape[0]

@@ -1,3 +1,16 @@
+*.log
+viper.sh
+*.helper
+*.backup
+*.tar.gz
+*.ipynb_checkpoints
+**/__pycache__
+*_build
+build
+devel
+.catkin_workspace
+
+
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -139,3 +152,5 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+/api_key.py
+/src/get_headlines/api_key.py

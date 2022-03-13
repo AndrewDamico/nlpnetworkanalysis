@@ -1,7 +1,7 @@
-# Pose Detection Module
+# Cluster Headlines
 
-The Viper Toolkit includes several modules created to aid with the management
-of the log outputs, node names, timing functions, and parameters.
+The Cluster Headlines module clusters a set of headlines for a given period and returns the addresses of the centroids 
+super centroid
 
 * Name Manager()
 * Logger()

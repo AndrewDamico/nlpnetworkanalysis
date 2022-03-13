@@ -5,7 +5,7 @@ from catkin_pkg.python_setup import generate_distutils_setup
 
 # fetch values from package.xml
 setup_args = generate_distutils_setup(
-    packages=['pose_detection_module'],
+    packages=['cluster_headlines_module'],
     package_dir={'': 'src'})
 
 setup(**setup_args)

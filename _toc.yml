@@ -1,0 +1,69 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: introduction
+options:
+  numbered: true
+parts:
+- caption: Introduction
+  numbered: True
+  chapters:
+  - file: readme
+  - file: docs/communication_diagram
+  - file: docs/process_diagram
+  - file: src/readme
+    sections:
+    - file: src/viper_toolkit/sample_publisher
+    - file: src/viper_toolkit/sample_subscriber
+- caption: Packages
+  numbered: True
+  chapters:
+  - file: src/model_server/model_server
+    sections:
+    - file: src/model_server/neural_network_loader
+  - file: src/image_server/readme
+    sections:
+    - file: src/image_server/image_server
+    - file: src/image_server/image_server_client
+  - file: src/scene_segmentation_module/readme
+    sections:
+    - file: src/scene_segmentation_module/scene_segmentation_module
+    - file: src/scene_segmentation_module/scene_segmentation_model
+    - file: src/scene_segmentation_module/example
+  - file: src/pose_detection_module/readme
+    sections:
+    - file: src/pose_detection_module/pose_detection_module
+    - file: src/pose_detection_module/pose_detection_model
+    - file: src/pose_detection_module/example
+  - file: src/augmented_vr_module/readme
+    sections:
+    - file: src/augmented_vr_module/augmented_vr_module
+  - file: src/viper_toolkit/readme
+    sections:
+    - file: src/viper_toolkit/dissector
+    - file: src/viper_toolkit/logger
+    - file: src/viper_toolkit/name_manager
+    - file: src/viper_toolkit/parameter_manager
+    - file: src/viper_toolkit/process_timer
+- caption: Hardware
+  chapters:
+  - file: docs/Hardware
+  - url: https://www.raspberrypi.com/
+    title: Raspberry Pi
+- caption: Software
+  chapters:
+  - file: docs/Software
+  - url: https://github.com/AndrewDamico/viper
+    title: VIPER GitHub Repository
+  - url: https://mate-desktop.org/
+    title: Mate Desktop
+  - url: https://www.ubuntu.com
+    title: Ubuntu
+  - url: https://github.com/openvinotoolkit/openvino/wiki/BuildingCode#building-for-different-oses
+    title: OpenVino Toolkit
+  - url: https://www.intel.com/content/www/us/en/developer/tools/neural-compute-stick/overview.html
+    title: Intel Neural Compute Stick 2
+    
+    
+    

@@ -1,7 +1,6 @@
 # Cluster Headlines
 
-The Cluster Headlines module clusters a set of headlines for a given period and returns the addresses of the centroids 
-super centroid
+The Get Headlines module fetches the news headlines from the New York Times API
 
 * Name Manager()
 * Logger()
