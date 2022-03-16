@@ -6,6 +6,7 @@
 # Northwestern University
 # Copyright (c) 2022, Andrew D'Amico. All rights reserved.
 # Licenced under BSD Licence.
+
 import datetime
 from NLPPrep import tokenization
 import math
@@ -27,6 +28,7 @@ class NewsArticle(object):
         self._synopsis = synopsis
         self._keywords = keywords
         self._tokens = None
+        self._dsi = None
         
     @property
     def headline(self):
@@ -47,7 +49,12 @@ class NewsArticle(object):
         else:
             self._tokens = self.build_tokens()
         return self._tokens
-
+    @property
+    def dsi(self):
+        if self._dsi == None:
+            self._dsi = tokenization(self.headline)
+        return self._dsi
+    
     def build_tokens(self):
         container = " "
         try:

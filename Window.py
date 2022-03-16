@@ -26,6 +26,8 @@ class Window(object):
         self._curration = [x for x in self._corpus.corpus if self.start_date <= x.date and x.date <= self.end_date]
         self._articles = None
         self._titles = None
+        self._centroids = None
+        self._clusters = None
     
     @property
     def end_date(self):
@@ -51,6 +53,18 @@ class Window(object):
         if self._articles == None:
             self._articles = list(map(self.token_viewer, self.corpus))
         return self._articles
+    @property
+    def centroids(self):
+        return self._centroids
+    @centroids.setter
+    def centroids(self, data):
+        self._centroids = data
+    @property
+    def clusters(self):
+        return self._clusters
+    @clusters.setter
+    def clusters(self, data):
+        self._clusters = data
     @property
     def info(self):
         print (f'Start Date: {self.start_date}')
