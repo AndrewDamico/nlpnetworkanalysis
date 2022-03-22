@@ -8,6 +8,8 @@ viper.sh
 *_build
 build
 devel
+images
+images/*
 .catkin_workspace
 
 
