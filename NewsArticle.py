@@ -29,6 +29,7 @@ class NewsArticle(object):
         self._keywords = keywords
         self._tokens = None
         self._dsi = None
+        self._embeddings = None
         
     @property
     def headline(self):
@@ -54,7 +55,12 @@ class NewsArticle(object):
         if self._dsi == None:
             self._dsi = tokenization(self.headline)
         return self._dsi
-    
+    @property
+    def embeddings(self):
+        return.self._embeddings
+    @embeddings.setter
+    def embeddings(self, data):
+        self._embeddings = data
     def build_tokens(self):
         container = " "
         try:
