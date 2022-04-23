@@ -57,7 +57,7 @@ class NewsArticle(object):
         return self._dsi
     @property
     def embeddings(self):
-        return.self._embeddings
+        return self._embeddings
     @embeddings.setter
     def embeddings(self, data):
         self._embeddings = data

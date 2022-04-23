@@ -22,7 +22,7 @@ def tokenization(doc):
     # remove remaining tokens that are not alphabetic
     tokens = [word for word in tokens if word.isalpha()]
     # filter out short tokens
-    tokens = [word for word in tokens if len(word) > 4]
+    tokens = [word for word in tokens if len(word) > 3]
     #lowercase all words
     tokens = [word.lower() for word in tokens]
     # filter out stop words
